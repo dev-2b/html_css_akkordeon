@@ -43,25 +43,49 @@ body {
 
 }
 
+/* --- TITELBOX STYLING --- */
+
 #titleBox {
     position: absolute;
     z-index: 10;
     transition: opacity 0.5s ease;
+    width: 20%;
+    /* Entspricht der Breite des ersten Panels */
+    height: 100%;
+    /* Volle Höhe nutzen, um den Text mittig zu zentrieren */
 
-    padding: 10px;
-    width: 25%;
-    margin: 10px;
+    /* Flexbox zur perfekten Zentrierung */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    /* 4. Bereite Farbe, Rahmen und Drehung vor */
-    background-color: #0078D7;
-    /* Farbe (Hintergrund) */
-    color: white;
-    /* Farbe (Text) */
-    border: 2px solid #005A9E;
-    /* Rahmen */
+    /* Alte Platzhalter-Werte aus Aufgabe 3 entfernen */
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
 
-    /* vorbereitete aber noch nciht gedreht */
-    transform: rotate(0deg);
+    /*Lässt die Maus durch die Box "hindurchgreifen" */
+    pointer-events: none;
+}
+
+#titleBox span {
+    font-size: 28px;
+    font-weight: 300;
+    /* Eine etwas dünnere, elegantere Schriftstärke */
+    text-transform: uppercase;
+    /* Alles in Großbuchstaben */
+    letter-spacing: 12px;
+    /* Sehr weiter, moderner Buchstabenabstand */
+    color: #ffffff;
+
+    /* Ein subtiler, mystischer Leuchteffekt */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(255, 255, 255, 0.3);
+
+    /* Dreht den Text vertikal von unten nach oben */
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
 }
 
 /* 1. & 2. Gemeinsame Regeln: Absolute Positionierung, Höhe, Breite, Transition */
