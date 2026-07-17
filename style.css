@@ -39,8 +39,7 @@ body {
     /* Abgerundete Ecken wie im Endergebnis*/
     overflow: hidden;
 
-    /* Damit die 5 Panels aus Aufgabe 5 nebeneinander liegen: */
-    display: flex;
+    position: relative;
 
 }
 
@@ -63,4 +62,49 @@ body {
 
     /* vorbereitete aber noch nciht gedreht */
     transform: rotate(0deg);
+}
+
+/* 1. & 2. Gemeinsame Regeln: Absolute Positionierung, Höhe, Breite, Transition */
+#acc1,
+#acc2,
+#acc3,
+#acc4,
+#acc5 {
+    position: absolute;
+    height: 100%;
+    width: 100px;
+    /* Start-Breite im eingeklappten Zustand */
+    transition: all 0.5s ease-in-out;
+    /* Weicher Übergang (Animation) */
+    overflow: hidden;
+    /* Verhindert, dass Bilder über den Rand des Panels lappen */
+}
+
+/* 3. Gemeinsame Regeln für Bildstreifen (die <img> Tags in den Panels) */
+#acc1 img,
+#acc2 img,
+#acc3 img,
+#acc4 img,
+#acc5 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Sorgt dafür, dass das Bild das Panel füllt, ohne gestaucht zu werden */
+}
+
+/* 4. Gemeinsame Regeln für Textleisten (die <div> Container für den Text) */
+#acc1T,
+#acc2T,
+#acc3T,
+#acc4T,
+#acc5T {
+    position: absolute;
+    bottom: 30px;
+    /* Abstand von unten */
+    left: 20px;
+    /* Abstand von links */
+    right: 20px;
+    /* Abstand von rechts */
+    color: #ffffff;
+    transition: all 0.5s ease;
 }
