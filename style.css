@@ -1,1 +1,10 @@
-/* Bearbeiten Sie diese Datei passend zur Aufgabe. */
+#accordianFrame {
+    /* 2. Setze Breite, Hoehe, Rahmen und overflow: hidden */
+    width: 600px;
+    height: 400px;
+    border: 2px solid #333;
+    overflow: hidden;
+
+    /* 3. Platziere den Rahmen mittig */
+    margin: 50px auto;
+}
