@@ -107,6 +107,9 @@ body {
     /* Abstand von rechts */
     color: #ffffff;
     transition: all 0.5s ease;
+
+    opacity: 0;
+    z-index: 5;
 }
 
 #acc1 {
@@ -134,24 +137,100 @@ body {
     opacity: 0;
 }
 
-/* 2. Staffle die Panels vor (Bereitschaftsmodus) */
-/* Panel 1 bleibt links. Die anderen rücken nach rechts, um Platz zu machen. */
+/* --- KORREKTUR AUFGABE 10 --- */
+/* Alle Panels rücken beim Frame-Hover nach links, um Platz zu machen */
 #accordianFrame:hover #acc1 {
     left: 0%;
 }
 
 #accordianFrame:hover #acc2 {
-    left: 60%;
+    left: 10%;
 }
 
 #accordianFrame:hover #acc3 {
-    left: 70%;
+    left: 20%;
 }
 
 #accordianFrame:hover #acc4 {
-    left: 80%;
+    left: 30%;
 }
 
 #accordianFrame:hover #acc5 {
+    left: 40%;
+}
+
+/* --- AUFGABE 11 & 12: HOVER-LOGIK --- */
+/* Panel 1 schiebt 2, 3, 4 und 5 nach rechts */
+#acc1:hover~#acc2 {
+    left: 60%;
+}
+
+#acc1:hover~#acc3 {
+    left: 70%;
+}
+
+#acc1:hover~#acc4 {
+    left: 80%;
+}
+
+#acc1:hover~#acc5 {
     left: 90%;
+}
+
+/* Panel 2 schiebt 3, 4 und 5 nach rechts. Panel 1 bleibt links. */
+#acc2:hover~#acc3 {
+    left: 70%;
+}
+
+#acc2:hover~#acc4 {
+    left: 80%;
+}
+
+#acc2:hover~#acc5 {
+    left: 90%;
+}
+
+/* Panel 3 schiebt 4 und 5 nach rechts */
+#acc3:hover~#acc4 {
+    left: 80%;
+}
+
+#acc3:hover~#acc5 {
+    left: 90%;
+}
+
+/* Panel 4 schiebt 5 nach rechts */
+#acc4:hover~#acc5 {
+    left: 90%;
+}
+
+/* dunkelt inaktive Panels ab */
+.glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* Schwarzer, leicht transparenter Schleier */
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+/* Beim Hover über ein Panel: Text einblenden */
+#acc1:hover #acc1T,
+#acc2:hover #acc2T,
+#acc3:hover #acc3T,
+#acc4:hover #acc4T,
+#acc5:hover #acc5T {
+    opacity: 1;
+}
+
+/* Beim Hover über ein Panel: Glow ausblenden, Bild wird strahlend */
+#acc1:hover .glow,
+#acc2:hover .glow,
+#acc3:hover .glow,
+#acc4:hover .glow,
+#acc5:hover .glow {
+    opacity: 0;
 }
