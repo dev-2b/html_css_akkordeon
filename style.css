@@ -1,12 +1,47 @@
+/* 1. Reset- und Box-Sizing-Regeln */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 3. Basiswerte für html und body */
+html {
+    height: 100%;
+}
+
+body {
+    /* 2. Schwarze Seitenfläche und helle Schrift */
+    background-color: #121212;
+    /* Sehr dunkles Grau / fast Schwarz */
+    color: #f5dfdf;
+    /* helle Schrift */
+    font-family: sans-serif;
+
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    /* Zentriert den Inhalt horizontal */
+    align-items: center;
+    /* Zentriert den Inhalt vertikal */
+}
+
 #accordianFrame {
-    /* 2. Setze Breite, Hoehe, Rahmen und overflow: hidden */
-    width: 600px;
-    height: 400px;
+    width: 900px;
+
+    height: 450px;
     border: 2px solid #333;
+    border-radius: 12px;
+    /* Abgerundete Ecken wie im Endergebnis*/
     overflow: hidden;
 
-    /* 3. Platziere den Rahmen mittig */
-    margin: 50px auto;
+    /* Damit die 5 Panels aus Aufgabe 5 nebeneinander liegen: */
+    display: flex;
+
 }
 
 #titleBox {
