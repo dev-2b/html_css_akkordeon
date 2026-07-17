@@ -8,3 +8,24 @@
     /* 3. Platziere den Rahmen mittig */
     margin: 50px auto;
 }
+
+#titleBox {
+    /* 3. Positioniere die Titelbox im Akkordeon-Rahmen */
+
+    position: relative;
+
+    padding: 10px;
+    width: 200px;
+    margin: 10px;
+
+    /* 4. Bereite Farbe, Rahmen und Drehung vor */
+    background-color: #0078D7;
+    /* Farbe (Hintergrund) */
+    color: white;
+    /* Farbe (Text) */
+    border: 2px solid #005A9E;
+    /* Rahmen */
+
+    /* vorbereitete aber noch nciht gedreht */
+    transform: rotate(0deg);
+}
