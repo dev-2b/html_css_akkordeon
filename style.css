@@ -78,6 +78,7 @@ body {
     /* Weicher Übergang (Animation) */
     overflow: hidden;
     /* Verhindert, dass Bilder über den Rand des Panels lappen */
+    z-index: 1;
 }
 
 /* 3. Gemeinsame Regeln für Bildstreifen (die <img> Tags in den Panels) */
@@ -204,33 +205,67 @@ body {
     left: 90%;
 }
 
-/* dunkelt inaktive Panels ab */
 .glow {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    /* Schwarzer, leicht transparenter Schleier */
-    transition: opacity 0.5s ease;
+
+    /* Im Grundzustand: Dunkler Schleier und leicht verschwommen (Blur) */
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    opacity: 0.7;
     z-index: 1;
+
+    /* KORREKTUR: 'width 0.5s ease,' wurde entfernt! */
+    transition: backdrop-filter 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
 }
 
-/* Beim Hover über ein Panel: Text einblenden */
-#acc1:hover #acc1T,
-#acc2:hover #acc2T,
-#acc3:hover #acc3T,
-#acc4:hover #acc4T,
-#acc5:hover #acc5T {
+/* 2. Setze die farbigen Schatten für #glow1 bis #glow5 */
+/* Ein negativer Y-Wert (z.B. -200px) zieht den Schatten an den unteren Rand */
+#glow1 {
+    box-shadow: inset 0 -200px 150px -50px #128c54;
+}
+
+/* Grün */
+#glow2 {
+    box-shadow: inset 0 -200px 150px -50px #b85714;
+}
+
+/* Orange */
+#glow3 {
+    box-shadow: inset 0 -200px 150px -50px #1462b8;
+}
+
+/* Blau */
+#glow4 {
+    box-shadow: inset 0 -200px 150px -50px #8c14b8;
+}
+
+/* Lila */
+#glow5 {
+    box-shadow: inset 0 -200px 150px -50px #578c14;
+}
+
+/* Limette */
+
+/* Beim Hover: Bild scharf machen (Blur 0), Hintergrund transparent, Farben strahlen lassen */
+#acc1:hover #glow1,
+#acc2:hover #glow2,
+#acc3:hover #glow3,
+#acc4:hover #glow4,
+#acc5:hover #glow5 {
+    background-color: transparent;
+    backdrop-filter: blur(0px);
     opacity: 1;
 }
 
-/* Beim Hover über ein Panel: Glow ausblenden, Bild wird strahlend */
-#acc1:hover .glow,
-#acc2:hover .glow,
-#acc3:hover .glow,
-#acc4:hover .glow,
-#acc5:hover .glow {
-    opacity: 0;
+/* NEU: Hebe das aktive (gehoverte) Panel optisch ganz nach vorne */
+#acc1:hover,
+#acc2:hover,
+#acc3:hover,
+#acc4:hover,
+#acc5:hover {
+    z-index: 2;
 }
