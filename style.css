@@ -44,9 +44,9 @@ body {
 }
 
 #titleBox {
-    /* 3. Positioniere die Titelbox im Akkordeon-Rahmen */
-
-    position: relative;
+    position: absolute;
+    z-index: 10;
+    transition: opacity 0.5s ease;
 
     padding: 10px;
     width: 25%;
@@ -72,8 +72,8 @@ body {
 #acc5 {
     position: absolute;
     height: 100%;
-    width: 20%;
-    /* Start-Breite im eingeklappten Zustand */
+    width: 60%;
+    /* geändert, ausgeklappten Zustand */
     transition: all 0.5s ease-in-out;
     /* Weicher Übergang (Animation) */
     overflow: hidden;
@@ -127,4 +127,31 @@ body {
 
 #acc5 {
     left: 80%;
+}
+
+/* 1. Blende die Titelbox aus, wenn der Mauszeiger im Rahmen ist */
+#accordianFrame:hover #titleBox {
+    opacity: 0;
+}
+
+/* 2. Staffle die Panels vor (Bereitschaftsmodus) */
+/* Panel 1 bleibt links. Die anderen rücken nach rechts, um Platz zu machen. */
+#accordianFrame:hover #acc1 {
+    left: 0%;
+}
+
+#accordianFrame:hover #acc2 {
+    left: 60%;
+}
+
+#accordianFrame:hover #acc3 {
+    left: 70%;
+}
+
+#accordianFrame:hover #acc4 {
+    left: 80%;
+}
+
+#accordianFrame:hover #acc5 {
+    left: 90%;
 }
